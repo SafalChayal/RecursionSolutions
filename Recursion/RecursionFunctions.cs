@@ -74,5 +74,57 @@ namespace Recursion
 
             return num * Factorial(num-1);
         }
+
+        public int Fibonacci(int num)//Not optimized 
+        {
+            if(num==0 || num == 1)
+            {
+                return num;
+
+            }
+
+            return Fibonacci(num - 1) + Fibonacci(num - 2);
+
+        }
+
+        public void MergeSort(int[] arr,int start,int end)
+        {
+            if(start < end)
+            {
+                int mid = (start + end) / 2;
+                MergeSort(arr, start, mid);
+                MergeSort(arr, mid + 1, end);
+                Merge(arr, start, mid, end);
+
+            }
+        }
+
+        public void Merge(int[] data,int start, int mid,int end)
+        {
+            int[] temp = new int[end - start + 1]; 
+            int i = start, j = mid+1, k = 0;
+
+            while(i <= mid && j<= end)
+            {
+                if (data[i] <= data[j]) temp[k++] = data[i++];
+                else temp[k++] = data[j++];
+            }
+
+            while(i <= mid)
+            {
+                temp[k++] = data[i++];
+            }
+
+            while(j <= end)
+            {
+                temp[k++] = data[j++];
+            }
+
+            for(i=start;i< end; i++)
+            {
+                data[i] = temp[i - start];
+            }
+        }
+
     }
 }

@@ -24,3 +24,6 @@ int target = 10;
 Console.WriteLine($"The index of target is {  obj.BinarySearch(arr,0,arr.Length,target)}");
 
 Console.WriteLine($"The factorial of 5  is {obj.Factorial(5)}");
+
+Console.WriteLine($" {obj.Fibonacci(6)}");
+
