@@ -8,12 +8,12 @@ namespace Recursion
 {
     internal class RecursionFunctions
     {
-        public  string ReverseIt(string str)
+        public string ReverseIt(string str)
         {
             if (str.Equals("")) return "";
 
             return ReverseIt(str.Substring(1)) + str[0];
-           
+
 
         }
 
@@ -21,48 +21,48 @@ namespace Recursion
         {
             if (str.Length == 0 || str.Length == 1) return true;
 
-            if (str[0] == str[str.Length - 1]) return PalindromeResursion(str.Substring(1,str.Length-2));
+            if (str[0] == str[str.Length - 1]) return PalindromeResursion(str.Substring(1, str.Length - 2));
 
             return false;
-            
+
 
         }
 
-        public string DecimalToBinary(int number,string result)
+        public string DecimalToBinary(int number, string result)
         {
             if (number == 0) return result;
 
             result = number % 2 + result;
 
-            return DecimalToBinary(number/2, result);
+            return DecimalToBinary(number / 2, result);
         }
 
-        public long SumOfN(int num,long sum)
+        public long SumOfN(int num, long sum)
         {
             //directly n=n*(n+1)/2
             if (num == 0) return sum;
 
             sum = num + sum;
 
-            return SumOfN(num - 1,sum) ;
+            return SumOfN(num - 1, sum);
         }
 
         public int Sum(int num)
         {
             if (num <= 1) return num;
 
-            return  num + Sum(num - 1);
+            return num + Sum(num - 1);
         }
 
-        public int BinarySearch(int[] arr, int min,int max,int key)
+        public int BinarySearch(int[] arr, int min, int max, int key)
         {
             if (min > max) return -1;
-            
+
             int mid = (min + max) / 2;
 
-            if(key == arr[mid]) return mid;
+            if (key == arr[mid]) return mid;
 
-            if (mid > key) return BinarySearch(arr,min,mid-1,key);
+            if (mid > key) return BinarySearch(arr, min, mid - 1, key);
 
             return BinarySearch(arr, mid + 1, max, key);
 
@@ -72,12 +72,12 @@ namespace Recursion
         {
             if (num == 1) return num;
 
-            return num * Factorial(num-1);
+            return num * Factorial(num - 1);
         }
 
         public int Fibonacci(int num)//Not optimized 
         {
-            if(num==0 || num == 1)
+            if (num == 0 || num == 1)
             {
                 return num;
 
@@ -87,9 +87,9 @@ namespace Recursion
 
         }
 
-        public void MergeSort(int[] arr,int start,int end)
+        public void MergeSort(int[] arr, int start, int end)
         {
-            if(start < end)
+            if (start < end)
             {
                 int mid = (start + end) / 2;
                 MergeSort(arr, start, mid);
@@ -99,32 +99,80 @@ namespace Recursion
             }
         }
 
-        public void Merge(int[] data,int start, int mid,int end)
+        public void Merge(int[] data, int start, int mid, int end)
         {
-            int[] temp = new int[end - start + 1]; 
-            int i = start, j = mid+1, k = 0;
+            int[] temp = new int[end - start + 1];
+            int i = start, j = mid + 1, k = 0;
 
-            while(i <= mid && j<= end)
+            while (i <= mid && j <= end)
             {
                 if (data[i] <= data[j]) temp[k++] = data[i++];
                 else temp[k++] = data[j++];
             }
 
-            while(i <= mid)
+            while (i <= mid)
             {
                 temp[k++] = data[i++];
             }
 
-            while(j <= end)
+            while (j <= end)
             {
                 temp[k++] = data[j++];
             }
 
-            for(i=start;i< end; i++)
+            for (i = start; i < end; i++)
             {
                 data[i] = temp[i - start];
             }
         }
 
+        public TreeNode InsertInBinarySearchTree(TreeNode root, int val)
+        {
+            if(root == null)
+            {
+                root = new TreeNode();
+                root.val = val;
+                return root;
+            }
+
+            if(val > root.val)
+            {
+                root.right = InsertInBinarySearchTree(root.right, val);
+            }
+            else
+            {
+                root.left = InsertInBinarySearchTree(root.left, val);
+            }
+
+            return root;
+
+        }
+
+        public void PrintLeafNode(TreeNode node)
+        {
+            if (node == null) return;
+
+            if(node.left == null && node.right == null) { Console.Write(node.val + " "); }
+
+            if (node.left != null) PrintLeafNode(node.left);
+
+            if (node.right != null) PrintLeafNode(node.right);
+        }
+
+
+
+    }
+
+    public class TreeNode{
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
+
+        public TreeNode(int val=0,TreeNode left  =null,TreeNode right = null)
+        {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

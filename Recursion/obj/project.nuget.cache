@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "smXni3/FxVQLj15uobKQ5wkU5WKdhgqyjmYLgv6lZDznt3Q1qKiQ175Q+czR84RQ27TggIjz9Y1O9QlwNYawjw==",
+  "dgSpecHash": "UWulG1Hamb0dul27JpexJQnSSHGA9ObqlgcyP512Tjf76QWJTwymyfVT6eDI/21U9khdXl2Fu62XY7gOeRnJEw==",
   "success": true,
   "projectFilePath": "D:\\AspNetMVCProject\\Recursion\\Recursion\\Recursion.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
